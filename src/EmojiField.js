@@ -29,7 +29,8 @@ export default function EmojiField({ emojis, setEmojis }) {
 	// 	}
 	// }, [])
 
-	const handleSelectEmoji = (emoji) => {
+	const handleSelectEmoji = (emoji, key) => {
+		console.log(key)
 		switch (emoji) {
 			case ' ':
 				setValue(value + emoji)
@@ -40,6 +41,13 @@ export default function EmojiField({ emojis, setEmojis }) {
 				break
 			default:
 				setValue(value.slice(0, -1) + emoji)
+				setEmojis({
+					...emojis,
+					[key]: {
+						...emojis[key],
+						frequency: emojis[key].frequency ? emojis[key].frequency + 1 : 1,
+					},
+				})
 				break
 		}
 	}
@@ -59,14 +67,15 @@ export default function EmojiField({ emojis, setEmojis }) {
 				fullWidth
 				multiline
 			/>
-			<div ref={anchorRef}></div>
 			{emojiInput && anchorRef.current && (
 				<EmojiInput
 					anchorEl={anchorRef}
 					emojis={emojis}
+					setEmojis={setEmojis}
 					handleSelect={handleSelectEmoji}
 				/>
 			)}
+			<div ref={anchorRef}></div>
 		</>
 	)
 }
