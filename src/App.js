@@ -37,7 +37,7 @@ function App() {
 						<Grid>
 							<Typography align='center' variant='h2' color='primary'>
 								{' '}
-								Emoji Tree{' '}
+								Emoji Tree 🌳{' '}
 							</Typography>
 						</Grid>
 					</Grid>
@@ -67,7 +67,7 @@ function App() {
 							<Grid item>
 								<Button
 									onClick={() => {
-										localStorage.clearItem('emojiTreeEmojis')
+										localStorage.removeItem('emojiTreeEmojis')
 										setEmojis(emoji.lib)
 									}}
 									variant='text'
