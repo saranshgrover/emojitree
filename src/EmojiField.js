@@ -17,7 +17,7 @@ export default function EmojiField({ emojis, setEmojis }) {
 	}, [emojiInput])
 	const anchorRef = useRef(null)
 	const textAreaRef = useRef(null)
-	const upHandler = ({ key, keyCode }) => {
+	const downHandler = ({ key, keyCode }) => {
 		if (key === ':') {
 			setEmojiInput(!emojiInput)
 		}
@@ -54,7 +54,7 @@ export default function EmojiField({ emojis, setEmojis }) {
 	return (
 		<>
 			<TextField
-				onKeyUp={upHandler}
+				onKeyDown={downHandler}
 				inputRef={textAreaRef}
 				style={{ width: '80vw' }}
 				rows={4}
