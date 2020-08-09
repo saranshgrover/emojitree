@@ -9,6 +9,7 @@ import EmojiSymbolsIcon from '@material-ui/icons/EmojiSymbols'
 import EmojiObjectsIcon from '@material-ui/icons/EmojiObjects'
 import KeyboardIcon from '@material-ui/icons/Keyboard'
 import Typography from '@material-ui/core/Typography'
+import Link from '@material-ui/core/Link'
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -22,6 +23,9 @@ export default function SimpleList() {
 	return (
 		<div className={classes.root}>
 			<List component='nav'>
+				<ListItem>
+					<ListItemText primary='About EmojiTree' secondary={<><Typography variant='body'>{`Emoji Tree is a proof-of-concept inspired from Discord & Google keyboard inputs. It is the product of a research done on existing emoji inputs focusing on ease of use, accuracy and speed. You can read the entire paper `}</Typography><Link href='/paper.pdf'>here</Link></>} />
+				</ListItem>
 				<ListItem>
 					<ListItemIcon color='primary'>
 						<EmojiObjectsIcon />
